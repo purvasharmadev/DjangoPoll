@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class = "p-3 mb-4" style="color:red;font-family:comic sans">Polls</h1>
+
+{% for poll in polls %}
+<div class = "card shadow p-3 mb-5 bg-white rounded">
+<div class="row mypoll">
+    <div class = "col-6" style="font-family:georgia;text-transform:capitalize;color:darkblue;">
+        {{ poll.question }}
+    </div>
+    <div class="col-6">
+        <a href = "{% url 'vote' poll.id %}" class="btn btn-outline-primary">Vote</a>
+        <a href = "{% url 'results' poll.id %}" class="btn btn-outline-primary">Results</a>
+        {% if user.is_superuser %}
+        <a href = "{% url 'delete' poll.id %}" class="btn btn-outline-primary">Delete</a>
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}

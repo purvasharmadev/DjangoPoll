@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Lets Poll</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="/static/vender/bs/css/bootstrap.min.css" rel="stylesheet" />
+<script src="/static/vender/jquery-3.3.1.min.js"></script>
+<script src="/static/vender/popper.min.js"></script>
+<script src="/static/vender/bs/js/bootstrap.min.js"></script>
+<link href="/static/vender/fa/css/font-awesome.min.css" rel="stylesheet" />
+<link href = "/static/style.css" rel="stylesheet"/>
+</head>
+
+<!-- Image and text -->
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand" href="{% url 'home' %}" style="color:darkblue;font-family:comic sans">
+    <img src="/static/images/polls.png" width="30" height="30" class="d-inline-block align-top" alt="">
+    Poll
+  </a>
+  <ul class="nav justify-content-center" style="font-family:georgia;text-transform:capitalize;color:darkblue;">
+  <li class="nav-item">
+    <a class="nav-link active" href="{% url 'home' %}">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href= "{% url 'create' %}">Create Poll</a>
+  </li>
+  {% if user.is_superuser %}
+  <li class="nav-item">
+    <a class="nav-link" href= "/admin">Admin</a>
+  </li>
+  {% endif %}
+  
+</ul>
+</nav>
+
+<!--<a href = "{% url 'home' %}">home</a>
+<a href = "{% url 'create' %}">create</a>-->
+<br>
+<br>
+<div class = "container card p-3 mb-5 rounded" style="background-color: #e3f2fd;">
+
+{% block content %}
+{% endblock %}
+</div>

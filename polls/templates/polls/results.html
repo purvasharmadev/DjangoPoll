@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class = "container">
+<h1 style="color:red;font-family:comic sans">Results!</h1>
+<p class="border border-primary rounded p-3" style="font-family:georgia;text-transform:capitalize;color:darkblue;">
+{{ poll.question }}
+</p>
+<div class = "p-4 border border-primary rounded" style="font-family:georgia;text-transform:capitalize;color:darkblue;">
+<div class=row>
+    <div class = col-sm-4>
+        {{ poll.option_one }}
+    </div>
+    <div class = col-sm-4>
+        {{ poll.option_one_count }}
+    </div>
+</div>
+<br>
+<div class = row>
+    <div class = col-sm-4>
+        {{ poll.option_two }}   
+     </div>
+    <div class = col-sm-4>
+        {{ poll.option_two_count }}
+    </div>
+</div>
+<br>
+<div class = row>
+    <div class = col-sm-4>
+        {{ poll.option_three }}
+    </div>
+    <div class = col-sm-4>
+        {{ poll.option_three_count }}
+    </div>
+</div>
+</div>
+
+{% endblock %}
